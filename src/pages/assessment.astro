@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import MathQuiz from '../components/MathQuiz.astro';
+---
+
+<Layout 
+  title="Mathematical Assessment | The Reluctant Winner"
+  description="Demonstrate mathematical competency to access advanced strategies. A timed assessment for those who think in probabilities."
+>
+  <Header />
+  <Nav />
+  
+  <main class="pt-8 pb-16 bg-off-white min-h-screen">
+    <MathQuiz />
+  </main>
+  
+  <Footer />
+</Layout>

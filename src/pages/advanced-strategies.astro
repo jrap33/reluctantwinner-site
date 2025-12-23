@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Advanced Strategies | The Edge - For the Mathematical 1%"
+  description="Advanced gambling strategies for those who have demonstrated mathematical proficiency. Not gambling—calculated risk with proven edge."
+>
+  <Header />
+  
+  <main class="pt-8 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Access Control Check -->
+      <div id="access-denied" class="text-center">
+        <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 0h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h1 class="text-3xl font-playfair font-bold text-red-800 mb-4">
+          Access Restricted
+        </h1>
+        <p class="text-xl text-red-700 mb-8">
+          You must pass the mathematical proficiency assessment to access advanced strategies.
+        </p>
+        <a href="/math-assessment" class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-opacity-90 transition-colors">
+          Take Assessment
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Advanced Content (hidden by default) -->
+      <div id="advanced-content" class="hidden">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-playfair font-bold text-dark-gray mb-6">
+            Advanced Strategies
+          </h1>
+          <p class="text-xl text-light-gray max-w-3xl mx-auto">
+            Welcome to the 1%. You've demonstrated the mathematical competency required for these strategies. Remember: this isn't gambling—it's calculated risk with proven edge.
+          </p>
+        </div>
+
+        <!-- Strategy Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-2xl font-playfair font-semibold text-dark-gray mb-4">
+              Arbitrage Opportunities
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Risk-free profit through price discrepancies across different markets. Requires speed, capital, and multiple accounts.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Sports betting arbitrage</li>
+              <li>• Exchange vs. bookmaker differences</li>
+              <li>• Live betting inefficiencies</li>
+              <li>• Currency arbitrage in international markets</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-2xl font-playfair font-semibold text-dark-gray mb-4">
+              Value Betting
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Identifying when bookmaker odds underestimate true probability. Requires sophisticated modeling and bankroll management.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Statistical modeling techniques</li>
+              <li>• Market inefficiency identification</li>
+              <li>• Kelly Criterion position sizing</li>
+              <li>• Long-term variance management</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-2xl font-playfair font-semibold text-dark-gray mb-4">
+              Matched Betting
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Extracting value from promotional offers through lay betting. Mathematical certainty when executed correctly.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Bonus extraction techniques</li>
+              <li>• Lay betting calculations</li>
+              <li>• Account management strategies</li>
+              <li>• Risk mitigation protocols</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-2xl font-playfair font-semibold text-dark-gray mb-4">
+              Card Counting Systems
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Legal advantage play in blackjack. Requires perfect execution, significant practice, and emotional control.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Hi-Lo counting system</li>
+              <li>• True count conversion</li>
+              <li>• Betting spread optimization</li>
+              <li>• Heat management techniques</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Warning Section -->
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-red-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.864-.833-2.634 0L3.182 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <div>
+              <h4 class="text-lg font-semibold text-red-800 mb-2">Critical Warnings</h4>
+              <ul class="text-red-700 text-sm space-y-1">
+                <li>• These strategies require substantial capital and emotional discipline</li>
+                <li>• Account restrictions and bans are common</li>
+                <li>• Variance can be extreme even with positive expected value</li>
+                <li>• Legal considerations vary by jurisdiction</li>
+                <li>• Success requires treating this as a business, not entertainment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="text-center bg-gray-50 rounded-lg p-8">
+          <h3 class="text-2xl font-playfair font-semibold text-dark-gray mb-4">
+            Detailed Guides Coming Soon
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Comprehensive tutorials for each strategy are in development. Join the newsletter to be notified when they're released.
+          </p>
+          <a href="/#newsletter" class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-opacity-90 transition-colors">
+            Join Newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Check if user has passed the assessment
+  document.addEventListener('DOMContentLoaded', () => {
+    const hasPassedAssessment = localStorage.getItem('mathAssessmentPassed') === 'true';
+    
+    if (hasPassedAssessment) {
+      document.getElementById('access-denied').classList.add('hidden');
+      document.getElementById('advanced-content').classList.remove('hidden');
+    }
+  });
+</script>

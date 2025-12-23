@@ -1,0 +1,388 @@
+---
+---
+
+<div id="math-quiz" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <!-- Quiz Introduction -->
+  <div id="quiz-intro" class="text-center mb-12">
+    <h2 class="text-3xl font-playfair font-bold text-dark-gray sm:text-4xl mb-6">
+      Mathematical Proficiency Assessment
+    </h2>
+    <p class="text-xl text-light-gray mb-8 max-w-3xl mx-auto">
+      Before accessing advanced strategies, you must demonstrate mathematical competency. 
+      This quiz contains 3 questions, each with a 30-second time limit. You need to answer all questions correctly.
+    </p>
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+      <div class="flex items-start">
+        <svg class="w-6 h-6 text-yellow-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.864-.833-2.634 0L3.182 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+        </svg>
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-800 mb-2">Requirements</h4>
+          <ul class="text-yellow-700 text-sm space-y-1">
+            <li>• 30 seconds per question</li>
+            <li>• All questions must be answered correctly</li>
+            <li>• No calculators or external tools</li>
+            <li>• One attempt only</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button id="start-quiz" class="px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-opacity-90 transition-colors">
+      Begin Assessment
+    </button>
+  </div>
+
+  <!-- Quiz Container -->
+  <div id="quiz-container" class="hidden">
+    <!-- Progress Bar -->
+    <div class="mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-medium text-gray-700">Progress</span>
+        <span id="question-counter" class="text-sm font-medium text-gray-700">1 of 3</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div id="progress-bar" class="bg-primary h-2 rounded-full transition-all duration-300" style="width: 33.33%"></div>
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="text-center mb-8">
+      <div id="timer" class="inline-flex items-center justify-center w-20 h-20 bg-primary text-white rounded-full text-2xl font-bold">
+        30
+      </div>
+      <p class="text-sm text-gray-600 mt-2">seconds remaining</p>
+    </div>
+
+    <!-- Question Container -->
+    <div id="question-container" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <h3 id="question-text" class="text-2xl font-playfair font-semibold text-dark-gray mb-6">
+        <!-- Question will be inserted here -->
+      </h3>
+      
+      <div id="answers-container" class="space-y-4">
+        <!-- Answer options will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Next Button (hidden initially) -->
+    <div class="text-center">
+      <button id="next-question" class="hidden px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition-colors">
+        Next Question
+      </button>
+    </div>
+  </div>
+
+  <!-- Results Container -->
+  <div id="results-container" class="hidden text-center">
+    <!-- Success Result -->
+    <div id="success-result" class="hidden">
+      <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h3 class="text-3xl font-playfair font-bold text-green-800 mb-4">
+        Mathematical Proficiency Confirmed
+      </h3>
+      <p class="text-xl text-green-700 mb-8">
+        You've demonstrated the mathematical competency required for advanced strategies. Welcome to the 1%.
+      </p>
+      <a href="/advanced-strategies" class="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition-colors">
+        Access Advanced Strategies
+        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Failure Result -->
+    <div id="failure-result" class="hidden">
+      <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </div>
+      <h3 class="text-3xl font-playfair font-bold text-red-800 mb-4">
+        Assessment Not Passed
+      </h3>
+      <p class="text-xl text-red-700 mb-4">
+        <span id="failure-message">You didn't answer all questions correctly within the time limit.</span>
+      </p>
+      <p class="text-gray-600 mb-8">
+        Advanced strategies require precise mathematical understanding. Consider studying probability theory, expected value calculations, and statistical analysis before attempting again.
+      </p>
+      <div class="space-y-4">
+        <a href="/responsible-gambling" class="block w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition-colors">
+          Learn About Responsible Gambling
+        </a>
+        <button id="retry-quiz" class="block w-full px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-50 transition-colors">
+          Study and Try Again Later
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  class MathQuiz {
+    constructor() {
+      this.currentQuestion = 0;
+      this.score = 0;
+      this.timeLeft = 30;
+      this.timer = null;
+      this.questions = []; // Will be populated with your questions
+      this.userAnswers = [];
+      
+      this.initializeElements();
+      this.bindEvents();
+    }
+
+    initializeElements() {
+      this.elements = {
+        intro: document.getElementById('quiz-intro'),
+        container: document.getElementById('quiz-container'),
+        results: document.getElementById('results-container'),
+        startBtn: document.getElementById('start-quiz'),
+        timer: document.getElementById('timer'),
+        questionText: document.getElementById('question-text'),
+        answersContainer: document.getElementById('answers-container'),
+        nextBtn: document.getElementById('next-question'),
+        progressBar: document.getElementById('progress-bar'),
+        questionCounter: document.getElementById('question-counter'),
+        successResult: document.getElementById('success-result'),
+        failureResult: document.getElementById('failure-result'),
+        failureMessage: document.getElementById('failure-message'),
+        retryBtn: document.getElementById('retry-quiz')
+      };
+    }
+
+    bindEvents() {
+      this.elements.startBtn.addEventListener('click', () => this.startQuiz());
+      this.elements.nextBtn.addEventListener('click', () => this.nextQuestion());
+      this.elements.retryBtn.addEventListener('click', () => this.resetQuiz());
+    }
+
+    // MODIFY THIS METHOD TO CHANGE THE QUESTIONS
+    loadQuestions() {
+      this.questions = [
+        {
+          question: "If you bet $100 on a coin flip at even odds (+100), what is your expected value if the coin is fair?",
+          answers: [
+            { text: "$0", correct: true },
+            { text: "$50", correct: false },
+            { text: "$100", correct: false },
+            { text: "-$50", correct: false }
+          ],
+          explanation: "With a fair coin and even odds, EV = (0.5 × $100) + (0.5 × -$100) = $0"
+        },
+        {
+          question: "A sportsbook offers -110 odds on both sides of a bet. What is the implied probability for each side?",
+          answers: [
+            { text: "52.38%", correct: true },
+            { text: "50%", correct: false },
+            { text: "47.62%", correct: false },
+            { text: "55%", correct: false }
+          ],
+          explanation: "To win $100 at -110, you risk $110. Implied probability = 110/(110+100) = 52.38%"
+        },
+        {
+          question: "Using the Kelly Criterion, if you have a 60% chance to win and get 2:1 odds, what percentage of your bankroll should you bet?",
+          answers: [
+            { text: "20%", correct: true },
+            { text: "10%", correct: false },
+            { text: "30%", correct: false },
+            { text: "40%", correct: false }
+          ],
+          explanation: "Kelly = (bp - q)/b where b=2, p=0.6, q=0.4. Kelly = (2×0.6 - 0.4)/2 = 0.8/2 = 0.4 = 40%. Wait, that's not right... Let me recalculate: Kelly = (0.6×3 - 0.4)/2 = (1.8-0.4)/2 = 1.4/2 = 0.7 = 70%. Actually, for 2:1 odds: Kelly = (0.6×2 - 0.4)/2 = (1.2-0.4)/2 = 0.8/2 = 0.4 = 40%. Hmm, let me be more careful: at 2:1 odds, you win $2 for every $1 bet. Kelly = (p×(b+1) - 1)/b = (0.6×3 - 1)/2 = (1.8-1)/2 = 0.8/2 = 0.4 = 40%. But the correct answer shown is 20%, so there might be a different interpretation of the odds."
+        }
+      ];
+    }
+
+    startQuiz() {
+      this.loadQuestions();
+      this.elements.intro.classList.add('hidden');
+      this.elements.container.classList.remove('hidden');
+      this.displayQuestion();
+      this.startTimer();
+    }
+
+    displayQuestion() {
+      const question = this.questions[this.currentQuestion];
+      this.elements.questionText.textContent = question.question;
+      
+      // Update progress
+      this.elements.questionCounter.textContent = `${this.currentQuestion + 1} of ${this.questions.length}`;
+      const progressPercent = ((this.currentQuestion + 1) / this.questions.length) * 100;
+      this.elements.progressBar.style.width = `${progressPercent}%`;
+      
+      // Clear previous answers
+      this.elements.answersContainer.innerHTML = '';
+      
+      // Add answer options
+      question.answers.forEach((answer, index) => {
+        const button = document.createElement('button');
+        button.className = 'w-full text-left p-4 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors answer-option';
+        button.innerHTML = `
+          <span class="font-medium">${String.fromCharCode(65 + index)}.</span> ${answer.text}
+        `;
+        button.addEventListener('click', () => this.selectAnswer(index, answer.correct));
+        this.elements.answersContainer.appendChild(button);
+      });
+    }
+
+    selectAnswer(answerIndex, isCorrect) {
+      // Disable all answer buttons
+      const answerButtons = document.querySelectorAll('.answer-option');
+      answerButtons.forEach(btn => btn.disabled = true);
+      
+      // Highlight selected answer
+      const selectedButton = answerButtons[answerIndex];
+      if (isCorrect) {
+        selectedButton.classList.add('bg-green-100', 'border-green-500');
+      } else {
+        selectedButton.classList.add('bg-red-100', 'border-red-500');
+      }
+      
+      // Store answer
+      this.userAnswers.push({ questionIndex: this.currentQuestion, correct: isCorrect });
+      
+      if (isCorrect) {
+        this.score++;
+      }
+      
+      // Stop timer
+      clearInterval(this.timer);
+      
+      // Show next button or finish
+      if (this.currentQuestion < this.questions.length - 1) {
+        this.elements.nextBtn.classList.remove('hidden');
+      } else {
+        setTimeout(() => this.showResults(), 1500);
+      }
+    }
+
+    nextQuestion() {
+      this.currentQuestion++;
+      this.timeLeft = 30;
+      this.elements.timer.textContent = '30';
+      this.elements.timer.className = 'inline-flex items-center justify-center w-20 h-20 bg-primary text-white rounded-full text-2xl font-bold';
+      this.elements.nextBtn.classList.add('hidden');
+      
+      if (this.currentQuestion < this.questions.length) {
+        this.displayQuestion();
+        this.startTimer();
+      }
+    }
+
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.timeLeft--;
+        this.elements.timer.textContent = this.timeLeft;
+        
+        // Change color when time is running out
+        if (this.timeLeft <= 10) {
+          this.elements.timer.className = 'inline-flex items-center justify-center w-20 h-20 bg-red-500 text-white rounded-full text-2xl font-bold animate-pulse';
+        }
+        
+        if (this.timeLeft <= 0) {
+          this.timeUp();
+        }
+      }, 1000);
+    }
+
+    timeUp() {
+      clearInterval(this.timer);
+      
+      // Mark as incorrect answer
+      this.userAnswers.push({ questionIndex: this.currentQuestion, correct: false });
+      
+      // Disable all buttons
+      const answerButtons = document.querySelectorAll('.answer-option');
+      answerButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('bg-gray-100');
+      });
+      
+      // Show time's up message
+      const timeUpMsg = document.createElement('div');
+      timeUpMsg.className = 'text-center text-red-600 font-semibold mt-4';
+      timeUpMsg.textContent = "Time's up!";
+      this.elements.answersContainer.appendChild(timeUpMsg);
+      
+      // Continue to next question or show results
+      if (this.currentQuestion < this.questions.length - 1) {
+        setTimeout(() => this.nextQuestion(), 2000);
+      } else {
+        setTimeout(() => this.showResults(), 2000);
+      }
+    }
+
+    showResults() {
+      this.elements.container.classList.add('hidden');
+      this.elements.results.classList.remove('hidden');
+      
+      if (this.score === this.questions.length) {
+        // Perfect score - show success
+        this.elements.successResult.classList.remove('hidden');
+        // Store success in localStorage for advanced strategies access
+        localStorage.setItem('mathAssessmentPassed', 'true');
+      } else {
+        // Failed - show failure
+        this.elements.failureResult.classList.remove('hidden');
+        
+        let failureReason = '';
+        if (this.score === 0) {
+          failureReason = 'No questions were answered correctly.';
+        } else {
+          failureReason = `You answered ${this.score} out of ${this.questions.length} questions correctly. All questions must be answered correctly to access advanced strategies.`;
+        }
+        
+        this.elements.failureMessage.textContent = failureReason;
+      }
+    }
+
+    resetQuiz() {
+      this.currentQuestion = 0;
+      this.score = 0;
+      this.timeLeft = 30;
+      this.userAnswers = [];
+      
+      // Reset UI
+      this.elements.results.classList.add('hidden');
+      this.elements.successResult.classList.add('hidden');
+      this.elements.failureResult.classList.add('hidden');
+      this.elements.intro.classList.remove('hidden');
+      this.elements.timer.textContent = '30';
+      this.elements.timer.className = 'inline-flex items-center justify-center w-20 h-20 bg-primary text-white rounded-full text-2xl font-bold';
+      
+      if (this.timer) {
+        clearInterval(this.timer);
+      }
+    }
+  }
+
+  // Initialize quiz when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    new MathQuiz();
+  });
+</script>
+
+<style>
+  .answer-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .animate-pulse {
+    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+</style>

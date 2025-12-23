@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout 
+  title="About | The Reluctant Winner"
+  description="Learn about the author's journey and the mission to educate about the mathematics and psychology of gambling."
+>
+  <Header />
+  <Nav />
+  
+  <main class="pt-8 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-playfair font-bold text-dark-gray mb-6">
+          About The Reluctant Winner
+        </h1>
+        <p class="text-xl text-light-gray max-w-3xl mx-auto">
+          Learn about the author's journey and the mission to educate about the mathematics and psychology of gambling.
+        </p>
+      </div>
+      
+      <!-- Author Image and Bio -->
+      <div class="mb-16">
+        <div class="md:flex md:items-start md:space-x-8">
+          <div class="flex-shrink-0 mb-6 md:mb-0">
+            <img class="h-32 w-32 rounded-full object-cover mx-auto md:mx-0" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2" alt="Author headshot">
+          </div>
+          <div class="flex-1">
+            <h2 class="text-2xl font-playfair font-bold text-dark-gray mb-4">
+              The Reluctant Expert
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+              I never intended to become an expert in gambling psychology. Like many, I stumbled into it through personal experience and an oddly wired brain that sees everything through the lens of probability and expected value.
+            </p>
+            <p class="text-lg text-gray-600">
+              When I drove an ATV off a mountain in Park City, I felt oddly serene as it tumbled toward the rocks and treetops below. A neurologist later told me my brain was fine, except for anxiety, depression, and a touch of ADD. "With reasoning scores like these," he added, "you could do just about whatever you like."
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Philosophy Section -->
+      <div class="mb-16 bg-gray-50 rounded-lg p-8">
+        <h2 class="text-3xl font-playfair font-bold text-dark-gray mb-6 text-center">
+          My Philosophy
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-playfair font-semibold text-dark-gray mb-4">
+              For the 99%
+            </h3>
+            <p class="text-gray-600">
+              Gambling is entertainment with a guaranteed cost. If you can afford that cost and control your exposure, fine. But understand: the mathematics guarantee you will lose money over time. This isn't opinion—it's mathematical fact.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-playfair font-semibold text-dark-gray mb-4">
+              For the 1%
+            </h3>
+            <p class="text-gray-600">
+              A tiny minority can identify and exploit true mathematical advantages. This requires exceptional discipline, substantial capital, and emotional detachment. It's not glamorous—it's methodical, boring, and psychologically demanding.
+            </p>
+          </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+          <blockquote class="text-xl italic text-gray-700 font-playfair">
+            "I am not pro-gambling or anti-gambling. I am pro-mathematics and anti-delusion."
+          </blockquote>
+        </div>
+      </div>
+      
+      <!-- Credentials -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-playfair font-bold text-dark-gray mb-8 text-center">
+          Credentials & Experience
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-dark-gray mb-2">Education</h3>
+            <p class="text-gray-600">M.S. Applied Mathematics, B.A. Economics. Specialized in probability theory and behavioral economics.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-dark-gray mb-2">Research</h3>
+            <p class="text-gray-600">12 peer-reviewed papers on gambling psychology, risk perception, and addiction neuroscience.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-dark-gray mb-2">Experience</h3>
+            <p class="text-gray-600">7 years analyzing gambling markets, 3 years generating positive returns through mathematical edge identification.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mission Statement -->
+      <div class="bg-primary text-white rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-playfair font-bold mb-6">
+          The Mission
+        </h2>
+        <p class="text-xl mb-6 text-blue-100">
+          To provide mathematically accurate, psychologically informed analysis of gambling and risk—without the industry bias or recovery movement ideology.
+        </p>
+        <p class="text-blue-100">
+          The numbers don't lie. The psychology is measurable. The choice is yours.
+        </p>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
