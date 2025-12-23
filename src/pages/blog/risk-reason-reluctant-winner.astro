@@ -3,12 +3,33 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Nav from '../../components/Nav.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const articleData = {
+  title: "Risk, Reason, and the Reluctant Winner's Mind",
+  description: "The story of how a near-death experience, a sharp mind, and an obsession with expected value created a reluctant gambler who only bets when the math says so.",
+  image: "https://images.pexels.com/photos/6347919/pexels-photo-6347919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  datePublished: "2025-06-16T00:00:00Z",
+  dateModified: "2025-06-16T00:00:00Z",
+};
 ---
 
-<Layout 
-  title="Risk, Reason, and the Reluctant Winner's Mind | The Reluctant Winner"
-  description="The story of how a near-death experience, a sharp mind, and an obsession with expected value created a reluctant gambler who only bets when the math says so."
+<Layout
+  title={`${articleData.title} | The Reluctant Winner`}
+  description={articleData.description}
+  image={articleData.image}
+  articleDate={articleData.datePublished}
+  articleModified={articleData.dateModified}
 >
+  <ArticleSchema
+    title={articleData.title}
+    description={articleData.description}
+    image={articleData.image}
+    datePublished={articleData.datePublished}
+    dateModified={articleData.dateModified}
+    url={new URL(Astro.url.pathname, Astro.site).toString()}
+    slot="head"
+  />
   <Header />
   <Nav />
   
@@ -32,10 +53,13 @@ import Nav from '../../components/Nav.astro';
           </div>
         </div>
         
-        <img 
-          class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" 
-          src="https://images.pexels.com/photos/6347919/pexels-photo-6347919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+        <img
+          class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          src="https://images.pexels.com/photos/6347919/pexels-photo-6347919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="Mountain landscape representing risk and calculated decisions"
+          width="1260"
+          height="750"
+          loading="eager"
         >
       </header>
       

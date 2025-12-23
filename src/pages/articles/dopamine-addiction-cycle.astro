@@ -2,12 +2,33 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+
+const articleData = {
+  title: "The Dopamine Addiction Cycle: Why Your Brain Betrays You",
+  description: "Understanding the neurochemical mechanisms that make gambling so addictive, and why rational thinking becomes impossible when dopamine floods your system.",
+  image: "https://images.pexels.com/photos/269630/pexels-photo-269630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  datePublished: "2024-12-15T00:00:00Z",
+  dateModified: "2024-12-15T00:00:00Z",
+};
 ---
 
-<Layout 
-  title="The Dopamine Addiction Cycle: Why Your Brain Betrays You | The Edge"
-  description="Understanding the neurochemical mechanisms that make gambling so addictive, and why rational thinking becomes impossible when dopamine floods your system."
+<Layout
+  title={`${articleData.title} | The Reluctant Winner`}
+  description={articleData.description}
+  image={articleData.image}
+  articleDate={articleData.datePublished}
+  articleModified={articleData.dateModified}
 >
+  <ArticleSchema
+    title={articleData.title}
+    description={articleData.description}
+    image={articleData.image}
+    datePublished={articleData.datePublished}
+    dateModified={articleData.dateModified}
+    url={new URL(Astro.url.pathname, Astro.site).toString()}
+    slot="head"
+  />
   <Header />
   
   <main class="pt-8">
@@ -30,10 +51,13 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
         
-        <img 
-          class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" 
-          src="https://images.pexels.com/photos/269630/pexels-photo-269630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+        <img
+          class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          src="https://images.pexels.com/photos/269630/pexels-photo-269630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="Brain scan representing gambling psychology"
+          width="1260"
+          height="750"
+          loading="eager"
         >
       </header>
       

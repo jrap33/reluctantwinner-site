@@ -1,0 +1,52 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName?: string;
+  url: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  datePublished,
+  dateModified = datePublished,
+  authorName = "Jon",
+  url
+} = Astro.props;
+
+const imageURL = image.startsWith('http') ? image : new URL(image, Astro.site).toString();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": imageURL,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": {
+    "@type": "Person",
+    "name": authorName,
+    "url": "https://reluctantwinner.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Reluctant Winner",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://reluctantwinner.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
