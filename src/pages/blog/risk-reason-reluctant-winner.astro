@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import Nav from '../../components/Nav.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 
 const articleData = {
@@ -31,8 +30,7 @@ const articleData = {
     slot="head"
   />
   <Header />
-  <Nav />
-  
+
   <main class="pt-8">
     <!-- Article Header -->
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
