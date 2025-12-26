@@ -12,15 +12,22 @@
       </p>
       
       <div class="max-w-md mx-auto">
-        <form class="flex flex-col sm:flex-row gap-4">
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
+        <form
+          name="newsletter"
+          method="POST"
+          data-netlify="true"
+          class="flex flex-col sm:flex-row gap-4"
+        >
+          <input type="hidden" name="form-name" value="newsletter" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
             class="flex-1 px-4 py-3 rounded-md text-dark-gray placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             required
           >
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             class="px-6 py-3 bg-white text-primary font-semibold rounded-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
           >
             Subscribe
